@@ -12,12 +12,13 @@ node {
       // Run the maven build
       if (isUnix()) {
          sh "gcc main.c -o test"
+	 sh "chmod 755 test"
       } else {
          sh 'echo "not unix host"'
 		 
       }
    }
    stage('Results') {
-		sh 'sh ./test'
+		sh './test'
 	}
 }

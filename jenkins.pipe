@@ -11,7 +11,7 @@ node {
    stage('Build') {
       // Run the maven build
       if (isUnix()) {
-         sh "gcc test.c -o test"
+         sh "gcc main.c -o test"
       } else {
          sh 'echo "not unix host"'
 		 

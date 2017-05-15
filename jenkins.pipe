@@ -1,0 +1,23 @@
+
+node {
+   def mvnHome
+   stage('Preparation') { // for display purposes
+      // Get some code from a GitHub repository
+      git 'https://github.com/fa-tech-net/test-project.git'
+      // Get the Maven tool.
+      // ** NOTE: This 'M3' Maven tool must be configured
+      // **       in the global configuration.           
+   }
+   stage('Build') {
+      // Run the maven build
+      if (isUnix()) {
+         sh "gcc test.c -o test"
+      } else {
+         sh 'echo "not unix host"
+		 
+      }
+   }
+   stage('Results') {
+		sh 'sh ./test'
+	}
+}

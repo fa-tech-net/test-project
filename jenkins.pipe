@@ -13,7 +13,7 @@ node {
       if (isUnix()) {
          sh "gcc test.c -o test"
       } else {
-         sh 'echo "not unix host"
+         sh 'echo "not unix host"'
 		 
       }
    }

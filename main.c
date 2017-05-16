@@ -4,7 +4,7 @@
 
 int main(int ac, char ** av)
 {
-  int rc = 0
+  int rc = 0;
   if (ac > 1 )
     rc = atoi(av[1])
   puts("Hello world");

@@ -12,22 +12,20 @@ pipeline {
    	        }
 		stage('Build') 
 		{
-	      		if (isUnix()) 
+			steps
 			{
-				steps
+	      			if (isUnix()) 
 				{
+				
 		      			sh "gcc main.c -O2 -Wall -o test"
 		      			sh "chmod 755 test"
 		      			checkpoint 'Completed Build'
 				}
-	      		} 
-	        	else
-	        	{
-				step 
-				{
-		 			sh 'echo "not unix host"'
-				}
-	        	}
+	        		else
+	        		{
+					sh 'echo "not unix host"'
+	        		}
+			}
    	        }
    		stage('Results') 
 		{

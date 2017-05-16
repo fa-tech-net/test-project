@@ -1,5 +1,6 @@
 
 pipeline {
+	agent any
 	stages 
 	{
 		stage('Preparation') 
@@ -14,17 +15,10 @@ pipeline {
 		{
 			steps
 			{
-	      			if (isUnix()) 
-				{
 				
-		      			sh "gcc main.c -O2 -Wall -o test"
-		      			sh "chmod 755 test"
-		      			checkpoint 'Completed Build'
-				}
-	        		else
-	        		{
-					sh 'echo "not unix host"'
-	        		}
+				sh "gcc main.c -O2 -Wall -o test"
+				sh "chmod 755 test"
+				checkpoint 'Completed Build'
 			}
    	        }
    		stage('Results') 
